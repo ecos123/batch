@@ -1,0 +1,83 @@
+echo "14 exemplos de Comandos de Rede no Windows PowerShell">>ECOS_TEST_NETWORK.TXT
+echo "O Windows PowerShell possui inúmeros comandos que podem ser utilizados para efetuar diagnóstico e configuração dos adaptadores de rede do computador, assim como verificar status de conexões e testar a conectividade. echo>>ECOS_TEST_NETWORK.TXT
+echo "Veremos neste tutorial algumas comandos de rede no PowerShell que são equivalentes aos comandos utilizados no prompt (cmd). Vamos lá.">>ECOS_TEST_NETWORK.TXT
+
+powershell -Command "Get-NetIPAddress | Sort InterfaceIndex | FT InterfaceIndex, InterfaceAlias, IPAddress -Autosize"
+pause
+echo "Listar os adaptadores e seus respectivos endereços IP:">INF_REDE.TXT
+powershell -Command "Get-NetIPAddress | Sort InterfaceIndex | FT InterfaceIndex, InterfaceAlias, IPAddress -Autosize" >>INF_REDE.TXT
+
+echo "1. Visualizar as configurações de rede atuais dos adaptadores">Conf_rede.TXT
+powershell -Command "Get-NetIPConfiguration"
+
+
+echo "Windows PowerShell - Listar Adaptadores de Rede">>ECOS_TEST_NETWORK.TXT
+
+echo "2. Listar os adaptadores e seus respectivos endereços IP:>>Lista_Adaptadores.TXT
+powershell -Command "Get-NetIPAddress | Sort InterfaceIndex | FT InterfaceIndex, InterfaceAlias, IPAddress -Autosize">>Lista_Adaptadores.TXT
+
+echo "Windows PowerShell - Listar Adaptadores de Rede">>ECOS_TEST_NETWORK.TXT
+
+echo "3. Obter informações apenas de interfaces configuradas com IPv4:">Info_IPv4.TXT
+powershell -Command "Get-NetIPAddress | ? AddressFamily -eq IPv4 | FT –AutoSize">Info_IPv4.TXT
+echo "Windows PowerShell - Listar Adaptadores de Rede">>ECOS_TEST_NETWORK.TXT
+
+
+echo "4. Listar os adaptadores de rede presentes no computador, com seus nomes, descrição, status, endereços MAC e taxa de transmissão:">Lista_Adapt_full.TXT
+powershell -Command "Get-NetAdapter">>Lista_Adapt_full.TXT
+echo "Windows PowerShell - Listar Adaptadores de Rede com MAC Address">>ECOS_TEST_NETWORK.TXT
+
+
+echo "5. Obter informações sobre um adaptador em particular (por exemplo, Ethernet):">Sobre_Adapt_esp.TXT
+powershell -Command "Get-NetAdapter Ethernet">>Sobre_Adapt_esp.TXT
+echo "Windows PowerShell - Listar Adaptadores de Rede com Ethernet">>ECOS_TEST_NETWORK.TXT
+
+echo "6. Testar conexão a um host (ping):"
+powershell -Command "Test-NetConnection www.unintaflorida.com">>Ping_host.txt
+echo "Ping via Windows PowerShell">>ECOS_TEST_NETWORK.TXT
+
+echo "7. Testar conexão a um host com informações mais detalhadas:">Teste_connect.TXT
+powershell -Command "Test-NetConnection www.unintaflorida.com -InformationLevel Detailed">>Teste_connect.TXT
+echo "Ping detalhado no Windows PowerShell">>ECOS_TEST_NETWORK.TXT
+
+echo "8. Testar conexão a um host e mostrar somente o IP do host, resultado do teste e RTT da conexão:">TEST_IP_HOST.TXT
+powershell -Command "Test-NetConnection www.unintaflorida.com | Select -ExpandProperty PingReplyDetails | FT Address, Status, RoundTripTime">>TEST_IP_HOST.TXT
+echo "Ping com RTT no Windows PowerShell">>ECOS_TEST_NETWORK.TXT
+
+echo "9. Descobrir informações sobre os servidores DNS associados a um host (similar a NSLOOKUP):">Info_DNS.TXT
+powershell -Command "Resolve-DNSName www.unintaflorida.com">>Info_DNS.TXT
+echo "nslookup no Windows PowerShell">>ECOS_TEST_NETWORK.TXT
+
+echo "10. Traçar a rota até um determinado host remoto (tracert):">Trace_Route.TXT
+powershell -Command "Test-NetConnection www.unintaflorida.com -TraceRoute">>Trace_Route.TXT
+echo "Traceroute no WindowsPowerShell">>ECOS_TEST_NETWORK.TXT
+
+echo "11. Visualizar as conexões de rede TCP/IP atuais da máquina (similar ao netstat):">NET_TCPIP.TXT
+powershell -Command "Get-NetTCPConnection">>NET_TCPIP.TXT
+echo "Netstat no Windows PowerShell">>ECOS_TEST_NETWORK.TXT
+
+echo "12. Visualizar somente as conexões de rede TCP/IP estabelecidas (status ESTABLISHED):">Connect_TCPIP.TXT
+powershell -Command "Get-NetTCPConnection | ? State -eq Established | FT –Autosize">>Connect_TCPIP.TXT
+echo "Conexões ESTABLISHED no Windows PowerShell">>ECOS_TEST_NETWORK.TXT
+
+echo "13. Visualizar somente as conexões de rede TCP/IP cuja porta remota é a de número 80:">Port_TCPIP.TXT
+powershell -Command "Get-NetTCPConnection | ? RemotePort -eq 80 | FT –Autosize">>Port_TCPIP.TXT
+echo "Windows PowerShell - netstat TCP/IP">>ECOS_TEST_NETWORK.TXT
+
+echo "14. Visualizar somente as conexões de rede cujo endereço IP remoto seja diferente de 0.0.0.0:">RemoteIP.TXT
+powershell -Command "Get-NetTCPConnection | ? RemoteAddress -notlike 0.0.0.0 | FT –Autosize">>RemoteIP.TXT
+echo "Windows PowerShell - netstat">>ECOS_TEST_NETWORK.TXT
+
+echo "Bônus:">>ECOS_TEST_NETWORK.TXT
+echo "Com o Windows PowerShell também podemos habilitar e desabilitar uma interface de rede qualquer. Veja os exemplos a seguir:">>ECOS_TEST_NETWORK.TXT
+echo "15. Desabilitar a interface de rede de nome Ethernet:">Desabilitar_NET_Ethernet.TXT">>ECOS_TEST_NETWORK.TXT
+
+
+powershell -Command "Disable-NetAdapter Ethernet">>Desabilitar_NET_Ethernet.TXT
+echo "Desabilitar Interface de Rede com Windows PowerShell">>ECOS_TEST_NETWORK.TXT
+echo "16. Habilitar novamente a interface Ethernet:">Habilitar_NET_Ethernet.TXT">>ECOS_TEST_NETWORK.TXT
+powershell -Command "Enable-NetAdapter Ethernet">>Habilitar_NET_Ethernet.TXT
+
+md RELATORIO_ECOS_IT
+move *.txt RELATORIO_ECOS_IT
+PAUSE
