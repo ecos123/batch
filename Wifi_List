@@ -1,0 +1,661 @@
+@ECHO off
+color 0a
+echo            __   ____   ___        ____   __   ____ 
+echo           /  \ (  _ \ / __)      (  _ \ / _\ (_  _)
+echo          (  O ) )   /( (_ \       ) _ (/    \  )(  
+echo           \__/ (__\_) \___/      (____/\_/\_/ (__) 
+echo           ____   ___   __   ____                   
+echo          (  __) / __) /  \ / ___)                  
+echo           ) _) ( (__ (  O )\___ \                  
+echo          (____) \___) \__/ (____/                  
+
+Echo Escolha a opção desejada
+Echo =================================================================================
+Echo [1] Para organizar 
+Echo [2] Separar por tipo 
+Echo [3] Listar 
+Echo [4] Data e Hora
+Echo [5] Organiza BAT
+Echo [6] IP Config
+Echo [7] Mapear Rede
+Echo =================================================================================
+@CHOICE /C:1234567  
+REM @CHOICE /C:1234567 /M "Precione de 1 a 7 para escolher a opção
+
+IF ERRORLEVEL 7 GOTO REDE
+IF ERRORLEVEL 6 GOTO IPDATA 
+IF ERRORLEVEL 5 GOTO ORG_BAT
+IF ERRORLEVEL 4 GOTO Data-Hora
+IF ERRORLEVEL 3 GOTO listador
+IF ERRORLEVEL 2 GOTO sep
+IF ERRORLEVEL 1 GOTO org
+
+GOTO end
+
+:org
+@ECHO off
+attrib thumbs.db -h -s -r -a
+attrib imagens\thumbs.db -h -s -r -a
+del /q imagens\thumbs.db
+ren IMG-*.jpg img%random%.jpg
+
+MD AAE
+MD access
+MD atalhos
+MD audio
+MD bitmap
+MD cad
+MD corel
+MD CPP
+MD doc
+MD email
+MD exe
+MD flash
+MD fonts
+MD fotos
+MD gifs
+MD html
+MD icone
+MD Ilustrator
+MD imagens
+MD Java
+MD legendas
+MD Link
+MD Lixo
+MD log
+MD logo
+MD mACROS
+MD msn
+MD pdf
+MD photoshop
+MD pps
+MD SVG
+MD temp
+MD torrent
+MD txt
+MD video
+MD videogoogle
+MD xls
+MD zip
+
+
+move /-y *.SVG SVG
+move /-y *.CPP CPP
+move /-y *.AAE AAE
+move /-y *.jar Java
+move /-y *.log Log
+move /-y *.7z Zip
+move /-y *.msi Exe
+move /-y *.aac Audio
+move /-y *.opus Audio
+move /-y *.url Link
+move /-y *.ai Ilustrator
+move /-y *.accdb access
+move /-y *.dbf access
+move /-y *.mdb access
+move /-y *.lnk atalhos
+move /-y *.mid audio
+move /-y *.mp3 audio
+move /-y *.wav audio
+move /-y *.wma audio
+move /-y *.bmp bitmap
+move /-y *.dwg cad
+move /-y *.cdr corel
+move /-y *.doc doc
+move /-y *.dot doc
+move /-y *.rtf doc
+move /-y *.eml email
+move /-y *.msg email
+move /-y *.exe exe
+move /-y *.fla flash
+move /-y *.swf flash
+move /-y *.ttf fonts
+move /-y s500*jpg fotos
+move /-y *.gif gifs
+move /-y *.htm html
+move /-y *.ico icone
+move /-y *.jpg imagens
+move /-y *.jpeg imagens
+move /-y *.png Imagens
+move /-y *.tif Imagens
+move /-y *.tiff Imagens
+move /-y *.srt legendas
+move /-y *.asp Lixo
+move /-y *.aspx Lixo
+move /-y *.com Lixo
+move /-y *.css Lixo
+move /-y *.js Lixo
+move /-y *.php Lixo
+move /-y *.xml Lixo
+move /-y [*] Lixo
+move /-y thumbs.db Lixo
+move /-y *.lgo logo
+move /-y *.baS mACROS
+move /-y *.bin msn
+move /-y *.pdf pdf
+move /-y *.psd photoshop
+move /-y *.pps pps
+move /-y *.pot pps
+move /-y *.potx pps
+move /-y *.ppt pps
+move /-y *.tmp temp
+move /-y *.torrent torrent
+move /-y *.txt txt
+move /-y *.DIG txt
+move /-y *.asf video
+move /-y *.avi video
+move /-y *.div video
+move /-y *.mov video
+move /-y *.mpeg video
+move /-y *.mpg video
+move /-y *.3gp video
+move /-y *.m4v video
+move /-y *.m4a video
+move /-y *.mp4 video
+move /-y *.wmv video
+move /-y *.flv videogoogle
+move /-y *.gvi videogoogle
+move /-y *.gvp videogoogle
+move /-y *.csv xls
+move /-y *.xls xls
+move /-y *.rar zip
+move /-y *.zip zip
+
+ren *.accdb *%random%.accdb
+ren *.dbf *%random%.dbf
+ren *.mdb *%random%.mdb
+ren *.lnk *%random%.lnk
+ren *.mid *%random%.mid
+ren *.mp3 *%random%.mp3
+ren *.wav *%random%.wav
+ren *.wma *%random%.wma
+ren *.bmp *%random%.bmp
+ren *.dwg *%random%.dwg
+ren *.cdr *%random%.cdr
+ren *.doc *%random%.doc
+ren *.dot *%random%.dot
+ren *.rtf *%random%.rtf
+ren *.eml *%random%.eml
+ren *.exe *%random%.exe
+ren *.fla *%random%.fla
+ren *.swf *%random%.swf
+ren *.ttf *%random%.ttf
+ren *.s500*jpg *%random%.s500*jpg
+ren *.gif *%random%.gif
+ren *.htm *%random%.htm
+ren *.ico *%random%.ico
+ren *.jpg *%random%.jpg
+ren *.jpeg *%random%.jpeg
+ren *.png *%random%.png
+ren *.tif *%random%.tif
+ren *.tiff *%random%.tiff
+ren *.srt *%random%.srt
+ren *.asp *%random%.asp
+ren *.aspx *%random%.aspx
+ren *.com *%random%.com
+ren *.css *%random%.css
+ren *.js *%random%.js
+ren *.php *%random%.php
+ren *.xml *%random%.xml
+ren *.[*] *%random%.[*]
+ren *.thumbs.db *%random%.thumbs.db
+ren *.lgo *%random%.lgo
+ren *.baS *%random%.baS
+ren *.bin *%random%.bin
+ren *.pdf *%random%.pdf
+ren *.psd *%random%.psd
+ren *.pps *%random%.pps
+ren *.ppt *%random%.ppt
+ren *.tmp *%random%.tmp
+ren *.torrent *%random%.torrent
+ren *.txt *%random%.txt
+ren *.DIG *%random%.DIG
+ren *.asf *%random%.asf
+ren *.avi *%random%.avi
+ren *.div *%random%.div
+ren *.mov *%random%.mov
+ren *.mpeg *%random%.mpeg
+ren *.mpg *%random%.mpg
+ren *.wmv *%random%.wmv
+ren *.flv *%random%.flv
+ren *.gvi *%random%.gvi
+ren *.gvp *%random%.gvp
+ren *.csv *%random%.csv
+ren *.xls *%random%.xls
+ren *.rar *%random%.rar
+ren *.zip *%random%.zip
+
+
+
+del /q access\thumbs.db
+del /q atalhos\thumbs.db
+del /q audio\thumbs.db
+del /q bitmap\thumbs.db
+del /q cad\thumbs.db
+del /q corel\thumbs.db
+del /q doc\thumbs.db
+del /q email\thumbs.db
+del /q exe\thumbs.db
+del /q flash\thumbs.db
+del /q fonts\thumbs.db
+del /q fotos\thumbs.db
+del /q gifs\thumbs.db
+del /q html\thumbs.db
+del /q icone\thumbs.db
+del /q legendas\thumbs.db
+del /q Lixo\thumbs.db
+del /q logo\thumbs.db
+del /q mACROS\thumbs.db
+del /q msn\thumbs.db
+del /q pdf\thumbs.db
+del /q photoshop\thumbs.db
+del /q pps\thumbs.db
+del /q temp\thumbs.db
+del /q torrent\thumbs.db
+del /q txt\thumbs.db
+del /q video\thumbs.db
+del /q videogoogle\thumbs.db
+del /q xls\thumbs.db
+del /q zip\thumbs.db
+
+move /-y *.accdb access
+move /-y *.dbf access
+move /-y *.mdb access
+move /-y *.lnk atalhos
+move /-y *.mid audio
+move /-y *.mp3 audio
+move /-y *.wav audio
+move /-y *.wma audio
+move /-y *.bmp bitmap
+move /-y *.dwg cad
+move /-y *.cdr corel
+move /-y *.doc doc
+move /-y *.dot doc
+move /-y *.rtf doc
+move /-y *.eml email
+move /-y *.exe exe
+move /-y *.fla flash
+move /-y *.swf flash
+move /-y *.ttf fonts
+move /-y s500*jpg fotos
+move /-y *.gif gifs
+move /-y *.htm html
+move /-y *.ico icone
+move /-y *.jpg imagens
+move /-y *.jpeg imagens
+move /-y *.png Imagens
+move /-y *.tif Imagens
+move /-y *.tiff Imagens
+move /-y *.srt legendas
+move /-y *.asp Lixo
+move /-y *.aspx Lixo
+move /-y *.com Lixo
+move /-y *.css Lixo
+move /-y *.js Lixo
+move /-y *.php Lixo
+move /-y *.xml Lixo
+move /-y [*] Lixo
+move /-y thumbs.db Lixo
+move /-y *.lgo logo
+move /-y *.baS mACROS
+move /-y *.bin msn
+move /-y *.pdf pdf
+move /-y *.psd photoshop
+move /-y *.pps pps
+move /-y *.ppt pps
+move /-y *.tmp temp
+move /-y *.torrent torrent
+move /-y *.txt txt
+move /-y *.DIG txt
+move /-y *.asf video
+move /-y *.avi video
+move /-y *.div video
+move /-y *.mov video
+move /-y *.mpeg video
+move /-y *.mpg video
+move /-y *.wmv video
+move /-y *.flv videogoogle
+move /-y *.gvi videogoogle
+move /-y *.gvp videogoogle
+move /-y *.csv xls
+move /-y *.xls xls
+move /-y *.rar zip
+move /-y *.zip zipecho off
+
+attrib thumbs.db -h -s -r -a
+attrib imagens\thumbs.db -h -s -r -a
+
+del /q imagens\thumbs.db
+
+ren IMG-*.jpg img%random%.jpg
+
+move /-y *.bmp bitmap
+move /-y *.lgo logo
+move /-y *.ttf fonts
+move /-y s500*jpg fotos
+move /-y *.torrent f:\video\torrent
+move /-y *.tmp temp
+move /-y *.bin msn
+move /-y *.mdb access
+move /-y *.accdb access
+move /-y *.dbf access
+move /-y *.dwg cad
+move /-y *.gvi videogoogle
+move /-y *.gvp videogoogle
+move /-y *.flv videogoogle
+ren *.jpeg *.jpg
+move /-y *.jpg imagens
+move /-y *.png Imagens
+move /-y *.tiff Imagens
+move /-y *.tif Imagens
+move /-y *.gif gifs
+move /-y *.swf flash
+move /-y *.fla flash
+move /-y *.doc doc
+move /-y *.rtf doc
+move /-y *.dot doc
+move /-y *.baS mACROS
+move /-y *.xls xls
+move /-y *.csv xls
+move /-y *.pdf pdf
+move /-y *.exe exe
+move /-y *.cdr corel
+move /-y *.zip zip
+move /-y *.rar zip
+move /-y *.htm html
+move /-y *.php Lixo
+move /-y *.js Lixo
+move /-y *.css Lixo
+move /-y *.xml Lixo
+move /-y *.com Lixo
+move /-y [*] Lixo
+move /-y *.asp Lixo
+move /-y *.aspx Lixo
+move /-y *.pps pps
+move /-y *.ppt pps
+move /-y *.txt txt
+move /-y *.wmv video
+move /-y *.asf video
+move /-y *.mov video
+move /-y *.avi video
+move /-y *.mpg video
+move /-y *.mpeg video
+move /-y *.div video
+move /-y *.wma audio
+move /-y *.mp3 audio
+move /-y *.wav audio
+move /-y *.mid audio
+move /-y *.psd photoshop
+move /-y *.eml email
+move /-y *.ico icone
+move /-y thumbs.db lixo
+move /-y *.srt f:\video\legenda
+move /-y *.lnk atalhos
+ 
+ren *.txt *%random%.txt
+ren *.pps *%random%.pps
+ren *.jpg *%random%.jpg
+ren *.doc *%random%.doc
+ren *.xls *%random%.xls
+ren *.pdf *%random%.pdf
+ 
+attrib icone\thumbs.db -h -s -r -a
+attrib Imagens\thumbs.db -h -s -r -a
+attrib gifs\thumbs.db -h -s -r -a
+attrib flash\thumbs.db -h -s -r -a
+attrib DOC\thumbs.db -h -s -r -a
+attrib xls\thumbs.db -h -s -r -a
+attrib pdf\thumbs.db -h -s -r -a
+attrib exe\thumbs.db -h -s -r -a
+attrib corel\thumbs.db -h -s -r -a
+attrib zip\thumbs.db -h -s -r -a
+attrib html\thumbs.db -h -s -r -a
+attrib Lixo\thumbs.db -h -s -r -a
+attrib pps\thumbs.db -h -s -r -a
+attrib txt\thumbs.db -h -s -r -a
+attrib video\thumbs.db -h -s -r -a
+attrib audio\thumbs.db -h -s -r -a
+attrib photoshop\thumbs.db -h -s -r -a
+attrib email\thumbs.db -h -s -r -a
+attrib videogoogle\thumbs.db -h -s -r -a
+attrib MACROS\thumbs.db -h -s -r -a
+attrib cad\thumbs.db -h -s -r -a
+attrib access\thumbs.db -h -s -r -a
+attrib msn\thumbs.db -h -s -r -a
+attrib temp\thumbs.db -h -s -r -a
+attrib fotos\thumbs.db -h -s -r -a
+attrib fonts\thumbs.db -h -s -r -a
+attrib LOGO\thumbs.db -h -s -r -a
+attrib Bitmap\thumbs.db -h -s -r -a
+ 
+del /q icone\thumbs.db
+del /q Imagens\thumbs.db
+del /q gifs\thumbs.db
+del /q flash\thumbs.db
+del /q DOC\thumbs.db
+del /q xls\thumbs.db
+del /q pdf\thumbs.db
+del /q exe\thumbs.db
+del /q corel\thumbs.db
+del /q zip\thumbs.db
+del /q html\thumbs.db
+del /q Lixo\thumbs.db
+del /q pps\thumbs.db
+del /q txt\thumbs.db
+del /q video\thumbs.db
+del /q audio\thumbs.db
+del /q photoshop\thumbs.db
+del /q email\thumbs.db
+del /q videogoogle\thumbs.db
+del /q MACROS\thumbs.db
+del /q cad\thumbs.db
+del /q access\thumbs.db
+del /q msn\thumbs.db
+del /q temp\thumbs.db
+del /q fotos\thumbs.db
+del /q fonts\thumbs.db
+del /q LOGO\thumbs.db
+del /q Bitmap\thumbs.db
+
+RD AAE
+RD access
+RD atalhos
+RD audio
+RD bitmap
+RD cad
+RD corel
+RD CPP
+RD doc
+RD email
+RD exe
+RD flash
+RD fonts
+RD fotos
+RD gifs
+RD html
+RD icone
+RD Ilustrator
+RD imagens
+RD Java
+RD legendas
+RD Link
+RD Lixo
+RD log
+RD logo
+RD mACROS
+RD msn
+RD pdf
+RD photoshop
+RD pps
+RD SVG
+RD temp
+RD torrent
+RD txt
+RD video
+RD videogoogle
+RD xls
+RD zip
+
+
+
+
+
+GOTO end
+
+:sep
+md seperado-por-tipo
+move/y gifs seperado-por-tipo
+move/y flash seperado-por-tipo
+move/y doc seperado-por-tipo
+move/y xls seperado-por-tipo
+move/y pdf seperado-por-tipo
+move/y exe seperado-por-tipo
+move/y corel seperado-por-tipo
+move/y zip seperado-por-tipo
+move/y html seperado-por-tipo
+move/y Lixo seperado-por-tipo
+move/y pps seperado-por-tipo
+move/y txt seperado-por-tipo
+move/y video seperado-por-tipo
+move/y audio seperado-por-tipo
+move/y photoshop seperado-por-tipo
+move/y email seperado-por-tipo
+move/y videogoogle seperado-por-tipo
+move/y macros seperado-por-tipo
+move/y cad seperado-por-tipo
+move/y access seperado-por-tipo
+move/y msn seperado-por-tipo
+move/y temp seperado-por-tipo
+move/y fotos seperado-por-tipo
+move/y torrent seperado-por-tipo
+move/y Imagens seperado-por-tipo
+move/y fonts seperado-por-tipo
+move/y icone seperado-por-tipo
+move/y logo seperado-por-tipo
+move/y Bitmap seperado-por-tipo
+move/y atalhos seperado-por-tipo
+cd seperado-por-tipo
+ren Listao.txt Listao%random%.txt
+ren pasta.txt pasta%random%.txt
+ren Lista-pasta.txt Lista-pasta%random%.txt
+
+move /-y *.txt txt
+
+rd seperado-por-tipo
+ECHO Suas pastas foram organizadas, tudo foi movido para separado-por-tipo !
+
+@PAUSE
+GOTO end
+
+:listador
+ren Lista.txt Listao%random%.txt
+ren pasta.txt pasta%random%.txt
+ren Lista-pasta.txt Lista-pasta%random%.txt
+md txt
+move /-y *.txt txt
+dir *.* /b >Lista.txt
+dir *.* /b >Lista.csv
+dir *.* /b /ad   >pasta.txt
+dir *.* /b /s  >Lista-pasta.txt
+ECHO Criado uma lista com todos os arquivos!
+@PAUSE
+GOTO end
+
+:Data-Hora
+date /t >> Data-horas.txt
+time /t >> Data-horas.txt
+ECHO Criado uma arquivo Data-Hora.txt com as informações!
+@PAUSE
+
+
+:IPDATA
+cmd.exe /k %windir%\system32\ipconfig.exe
+@PAUSE
+
+GOTO end
+
+:ORG_BAT
+copy *.bat *.txt
+MD BAT
+
+md BAT
+move Org-plus.bat.ECOS bat
+RD BAT
+RD Bat
+
+ECHO move /-y *.bat  BAT
+ECHO ren Org-plus.ECOS Org-plus.bat
+ECHO Seus arquivos foram separados em pasta!
+@PAUSE
+
+
+
+
+GOTO end
+
+:rede
+
+subst a: 
+subst b:
+subst c:
+subst d: 
+subst e: 
+subst f: 
+subst g: 
+subst h: 
+subst i: 
+subst j:
+subst k:
+subst l: 
+subst m: 
+subst n: 
+subst o: 
+subst q: 
+subst r: 
+subst s: 
+subst t: 
+subst u: 
+subst v:
+subst w:
+subst x: 
+subst y: 
+subst x: 
+subst x: 
+
+
+
+
+subst x: C:\Users\ecos1\Pictures\Fotos
+subst p: C:\Users\ecos1\Dropbox\Projetos
+subst o: C:\Users\ecos1\onedrive
+subst s: C:\Users\ecos1\Documents\Sep_Tipos
+subst t: C:\Users\ecos1\Documents\Temas
+subst i: C:\Users\ecos1\Pictures
+subst r: C:\Users\ecos1\Dropbox
+subst v: C:\Users\ecos1\videos
+subst y: "C:\Users\ecos1\Dropbox\Camera Uploads"
+subst w: "C:\Users\ecos1\google drive"
+
+@pause
+GOTO end
+
+
+:end 
+cls
+
+pause
+Echo =================================================================================
+Echo [Elaborado por: EMMMANUEL CASSIO OLIVEIRA SOUZA  ] 
+Echo [Contato:       ecos123@gmail.com                ]
+Echo [Criado em:     18/10/1999                       ]
+Echo [Atualizado em: 12-01-2018			      ] 
+Echo =================================================================================
+echo            __   ____   ___        ____   __   ____ 
+echo           /  \ (  _ \ / __)      (  _ \ / _\ (_  _)
+echo          (  O ) )   /( (_ \       ) _ (/    \  )(  
+echo           \__/ (__\_) \___/      (____/\_/\_/ (__) 
+echo           ____   ___   __   ____                   
+echo          (  __) / __) /  \ / ___)                  
+echo           ) _) ( (__ (  O )\___ \                  
+echo          (____) \___) \__/ (____/                  
+pause
